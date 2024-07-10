@@ -22,7 +22,7 @@ const Redirection = () => {
     localStorage.setItem("auth_code", code);
 
     postData(code);
-  }, [navigate]);
+  }, []);
 
   const postData = async (code) => {
     const inputURL = `${API_URL}/login?code=${code}`;
@@ -36,7 +36,7 @@ const Redirection = () => {
       });
       console.log("response.data >>>", response.data);
 
-      const { accessToken } = response.data.accessToken;
+      const accessToken = response.data.accessToken;
       if (accessToken) {
         localStorage.setItem("jwt", accessToken);
         console.log("JWT Token:", accessToken);
