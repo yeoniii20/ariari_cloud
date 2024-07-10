@@ -5,10 +5,11 @@ import DefaultTheme from "./assets/styles/DefaultTheme";
 import All from "./pages/all";
 import Oncampus from "./pages/oncampus";
 import Offcampus from "./pages/offcampus";
-import ChipsComponent from "./components/chips/chipsComponent";
-import { CHIPS_DATA } from "./data/components/chips";
+import Mypage from "./pages/mypage";
+import Login from "./pages/login/login";
+import Redirection from "./pages/login/redirection";
+import Home from "./pages/home";
 
-// default theme 사용법
 const Test = styled.div`
   background-color: ${(props) => props.theme.color.grey._700};
   color: ${(props) => props.theme.color.white};
@@ -21,12 +22,15 @@ function App() {
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={DefaultTheme}>
-        <ChipsComponent data={CHIPS_DATA} />
         <Routes>
-          <Route path="/" element={<Test>Hello World</Test>} />
+          <Route path="/" element={<Home />} />
           <Route path="/all" element={<All />} />
-          <Route path="/oncampus" element={<Oncampus />} />
-          <Route path="/offcampus" element={<Offcampus />} />
+          <Route path="/campus" element={<Oncampus />} />
+          <Route path="/offCampus" element={<Offcampus />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/auth/kakao/callback" element={<Redirection />} />
         </Routes>
       </ThemeProvider>
     </Router>
